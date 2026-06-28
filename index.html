@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concorsi Internazionali Olio EVO 2026-2027</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  :root {
+    --bd: #6B1A2A;
+    --bd-dark: #4A0F1C;
+    --bd-deep: #2E0810;
+    --bd-light: #F5E8EB;
+    --bd-mid: #9B3A4E;
+    --gold: #C9973A;
+    --gold-light: #FBF3E0;
+    --cream: #FAF7F2;
+    --text: #1A0508;
+    --muted: #6B4050;
+    --border: rgba(107,26,42,0.15);
+    --white: #ffffff;
+    --bg: #F8F3F4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .page { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  .hero { background: var(--bd-deep); border-radius: 16px; padding: 2.25rem 2rem 1.75rem; margin-bottom: 2.5rem; }
+  .hero-top { display: flex; align-items: center; gap: 14px; margin-bottom: 1rem; }
+  .olive-icon { width: 46px; height: 46px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .olive-icon i { font-size: 22px; color: var(--bd-deep); }
+  .hero h1 { font-size: 26px; font-weight: 600; color: #F5E8EB; line-height: 1.3; }
+  .hero p { font-size: 15px; color: rgba(245,232,235,0.65); line-height: 1.6; margin-top: 4px; }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 1.5rem; }
+  .stat { background: rgba(255,255,255,0.07); border-radius: 10px; padding: 14px 16px; text-align: center; }
+  .stat-n { font-size: 28px; font-weight: 600; color: var(--gold); }
+  .stat-l { font-size: 11px; color: rgba(245,232,235,0.5); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .section-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: var(--bd-mid); margin: 2.5rem 0 1rem; display: flex; align-items: center; gap: 8px; }
+  .section-title i { font-size: 14px; }
+  .section-title::after { content:''; flex:1; height:1px; background:var(--bd-mid); opacity:0.2; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: box-shadow 0.2s, border-color 0.2s; }
+  .card:hover { border-color: var(--bd-mid); box-shadow: 0 4px 20px rgba(107,26,42,0.1); }
+  .card-head { background: var(--bd); padding: 16px 18px; display: flex; align-items: flex-start; gap: 12px; }
+  .card-num { width: 28px; height: 28px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--bd-deep); flex-shrink: 0; margin-top: 1px; }
+  .card-title { font-size: 15px; font-weight: 600; color: #F5E8EB; line-height: 1.3; }
+  .card-sub { font-size: 12px; color: rgba(245,232,235,0.6); margin-top: 3px; display: flex; align-items: center; gap: 5px; }
+  .card-sub i { font-size: 12px; }
+  .card-body { padding: 16px 18px; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .pill { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+  .pill-pri { background: var(--bd-light); color: var(--bd); }
+  .pill-gold { background: var(--gold-light); color: #7A5820; }
+  .pill-gray { background: #F0ECEE; color: var(--muted); }
+  .info-row { display: flex; align-items: baseline; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(107,26,42,0.07); font-size: 13px; gap: 8px; }
+  .info-row:last-child { border-bottom: none; }
+  .info-key { color: var(--muted); white-space: nowrap; }
+  .info-val { font-weight: 500; color: var(--text); text-align: right; }
+  .info-val a { color: var(--bd); text-decoration: none; }
+  .info-val a:hover { text-decoration: underline; }
+  .card-footer { padding: 12px 18px 14px; border-top: 1px solid rgba(107,26,42,0.07); background: var(--cream); }
+  .why { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .why strong { color: var(--bd); font-weight: 600; }
+
+  .timeline-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .tl-head { background: var(--bd-dark); padding: 14px 20px; }
+  .tl-head-t { font-size: 13px; font-weight: 500; color: #F5E8EB; }
+  .months { display: grid; grid-template-columns: repeat(12, 1fr); border-bottom: 1px solid var(--border); }
+  .month-col { display: contents; }
+  .month-label { text-align: center; font-size: 10px; padding: 7px 2px 5px; color: var(--muted); border-right: 1px solid var(--border); font-weight: 500; }
+  .month-label:last-child { border-right: none; }
+  .tl-rows { padding: 10px 4px 6px; }
+  .tl-row { display: grid; grid-template-columns: 120px 1fr; align-items: center; padding: 4px 0; }
+  .tl-label { font-size: 12px; color: var(--muted); padding-left: 16px; white-space: nowrap; font-weight: 500; }
+  .tl-bar-wrap { display: grid; grid-template-columns: repeat(12, 1fr); height: 20px; padding-right: 4px; }
+  .tl-seg { border-radius: 4px; height: 14px; margin: 3px 1px; }
+  .tl-seg.reg { background: var(--bd-mid); opacity: 0.4; }
+  .tl-seg.dead { background: var(--gold); opacity: 0.95; }
+  .tl-seg.res { background: var(--bd); opacity: 0.85; }
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; padding: 10px 16px 12px; background: var(--cream); border-top: 1px solid var(--border); }
+  .leg-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--muted); }
+  .leg-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+  .strat { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+  .strat-card { border-radius: 12px; padding: 16px 18px; border: 1px solid var(--border); }
+  .strat-card.high { background: var(--bd-deep); border-color: transparent; }
+  .strat-card.med { background: var(--gold-light); border-color: rgba(201,151,58,0.3); }
+  .strat-card.low { background: var(--white); }
+  .strat-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; margin-bottom: 8px; }
+  .strat-card.high .strat-tag { color: rgba(245,232,235,0.5); }
+  .strat-card.med .strat-tag { color: #8A6428; }
+  .strat-card.low .strat-tag { color: var(--muted); }
+  .strat-name { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .strat-card.high .strat-name { color: #F5E8EB; }
+  .strat-card.med .strat-name { color: #5C3D0A; }
+  .strat-card.low .strat-name { color: var(--text); }
+  .strat-desc { font-size: 13px; line-height: 1.6; }
+  .strat-card.high .strat-desc { color: rgba(245,232,235,0.65); }
+  .strat-card.med .strat-desc { color: #7A5018; }
+  .strat-card.low .strat-desc { color: var(--muted); }
+
+  .checklist { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .check-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 18px; border-bottom: 1px solid rgba(107,26,42,0.07); font-size: 13px; line-height: 1.6; color: var(--text); }
+  .check-item:last-child { border-bottom: none; }
+  .check-icon { width: 20px; height: 20px; border-radius: 50%; background: var(--bd-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .check-icon i { font-size: 12px; color: var(--bd); }
+
+  .note { font-size: 13px; color: var(--muted); font-style: italic; line-height: 1.6; margin-top: 2rem; padding: 14px 18px; background: var(--bd-light); border-radius: 10px; border-left: 4px solid var(--bd-mid); }
+
+  .footer { margin-top: 3rem; text-align: center; font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 20px; }
+    .stats-row { grid-template-columns: repeat(3,1fr); gap: 8px; }
+    .stat-n { font-size: 22px; }
+    .tl-label { font-size: 10px; padding-left: 8px; }
+    .tl-row { grid-template-columns: 80px 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-top">
+      <div class="olive-icon"><i class="ti ti-award"></i></div>
+      <div>
+        <h1>Concorsi internazionali olio EVO</h1>
+        <p>Guida operativa per l'espansione sui mercati esteri — Campagna 2026/2027</p>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-n">7</div><div class="stat-l">concorsi coperti</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">paesi / sedi</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">mercati strategici</div></div>
+    </div>
+  </div>
+
+  <div class="section-title"><i class="ti ti-trophy"></i> Schede concorsi</div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <div>
+          <div class="card-title">NYIOOC World Olive Oil Competition</div>
+          <div class="card-sub"><i class="ti ti-map-pin"></i> New York, USA</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="pill-row">
+          <span class="pill pill-pri">Priorità massima</span>
+          <span class="pill pill-gold">Mercato anglosassone</span>
+        </div>
+        <div class="info-row"><span class="info-key">Scadenza iscrizione</span><span class="info-val">1 marzo 2027</span></div>
+        <div class="info-row"><span class="info-key">Scadenza campioni</span><span class="info-val">1 aprile 2027</span></div>
+        <div class="info-row"><span class="info-key">Quota</span><span class="info-val">$400 / campione</span></div>
+        <div class="info-row"><span class="info-key">Campioni richiesti</span><span class="info-val">1 bottiglia retail originale</span></div>
+        <div class="info-row"><span class="info-key">Analisi chimiche</span><span class="info-val">Non richieste</span></div>
+        <div class="info-row"><span class="info-key">Pagamento</span><span class="info-val">Carta, PayPal, bonifico</span></div>
+        <div class="info-row"><span class="info-key">Sito</span><span class="info-val"><a href="https://nyiooc.org" target="_blank">nyiooc.org</a></span></div>
+      </div>
+      <div class="card-footer">
+        <div class="why"><strong>Perché partecipare:</strong> Il concorso più prestigioso al mondo. Un Gold Award è riconosciuto globalmente da buyer e media internazionali e può incrementare significativamente il valore del brand.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <div>
+          <div class="card-title">Japan Olive Oil Prize (JOOP)</div>
+          <div class="card-sub"><i class="ti ti-map-pin"></i> Tokyo, Giappone</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="pill-row">
+          <span class="pill pill-pri">Mercato giapponese</span>
+          <span class="pill pill-gold">Camera Commercio ITA-JP</span>
+        </div>
+        <div class="info-row"><span class="info-key">Prossima edizione</span><span class="info-val">28 maggio 2027</span></div>
+        <div class="info-row"><span class="info-key">Scadenza early bird</span><span class="info-val">31 marzo 2027</span></div>
+        <div class="info-row"><span class="info-key">Quota early bird</span><span class="info-val">€150 / campione</span></div>
+        <div class="info-row"><span class="info-key">Quota standard</span><span class="info-val">€170 / campione</span></div>
+        <div class="info-row"><span class="info-key">Campioni richiesti</span><span class="info-val">5 bottiglie da 500 ml</span></div>
+        <div class="info-row"><span class="info-key">Contatti</span><span class="info-val"><a href="mailto:iccj@iccj.or.jp">iccj@iccj.or.jp</a></span></div>
+        <div class="info-row"><span class="info-key">Sito</span><span class="info-val"><a href="https://jooprize.com" target="_blank">jooprize.com</a></span></div>
+      </div>
+      <div class="card-footer">
+        <div class="why"><strong>Perché partecipare:</strong> Vincitori esposti al Foodex Japan, la principale fiera food&amp;beverage asiatica. Accesso diretto a buyer e distributori giapponesi. Il Giappone cresce del +9% annuo nell'acquisto di EVO di qualità.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <div>
+          <div class="card-title">Olive Japan IOOC</div>
+          <div class="card-sub"><i class="ti ti-map-pin"></i> Tokyo, Giappone</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="pill-row">
+          <span class="pill pill-pri">Asia &amp; Oceania</span>
+          <span class="pill pill-gray">~800 oli da 29 paesi</span>
+        </div>
+        <div class="info-row"><span class="info-key">Scadenza campioni 2027</span><span class="info-val">14 maggio 2027</span></div>
+        <div class="info-row"><span class="info-key">Quota</span><span class="info-val">€300 / campione</span></div>
+        <div class="info-row"><span class="info-key">Promozione</span><span class="info-val">4 prodotti + 1 gratis</span></div>
+        <div class="info-row"><span class="info-key">Campioni richiesti</span><span class="info-val">3 × 500 ml o 5 × 250 ml</span></div>
+        <div class="info-row"><span class="info-key">Analisi chimiche</span><span class="info-val">Non richieste</span></div>
+        <div class="info-row"><span class="info-key">Spedizione</span><span class="info-val">DHL o UPS raccomandati</span></div>
+        <div class="info-row"><span class="info-key">Sito</span><span class="info-val"><a href="https://olivejapan.com" target="_blank">olivejapan.com</a></span></div>
+      </div>
+      <div class="card-footer">
+        <div class="why"><strong>Perché partecipare:</strong> Il più grande concorso dell'Asia. Abbinato a una trade show pubblica con forte esposizione mediatica. Include oli aromatizzati e olive da tavola.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <div>
+          <div class="card-title">Sol d'Oro – International EVOO Awards</div>
+          <div class="card-sub"><i class="ti ti-map-pin"></i> Verona, Italia</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="pill-row">
+          <span class="pill pill-pri">Europa</span>
+          <span class="pill pill-gold">24ª edizione</span>
+        </div>
+        <div class="info-row"><span class="info-key">Prossima edizione</span><span class="info-val">Febbraio 2027</span></div>
+        <div class="info-row"><span class="info-key">Scadenza campioni</span><span class="info-val">Metà febbraio 2027</span></div>
+        <div class="info-row"><span class="info-key">Campioni richiesti</span><span class="info-val">6 bottiglie / campione (max 4)</span></div>
+        <div class="info-row"><span class="info-key">Lotto minimo</span><span class="info-val">1.500 litri</span></div>
+        <div class="info-row"><span class="info-key">Analisi chimiche</span><span class="info-val">Richieste (acidità + perossidi)</span></div>
+        <div class="info-row"><span class="info-key">Contatti</span><span class="info-val"><a href="mailto:info@soldorointernational.com">info@soldorointernational.com</a></span></div>
+        <div class="info-row"><span class="info-key">Sito</span><span class="info-val"><a href="https://solexpo.com" target="_blank">solexpo.com</a></span></div>
+      </div>
+      <div class="card-footer">
+        <div class="why"><strong>Perché partecipare:</strong> 5 fasi di selezione, tra i più selettivi e credibili. Vetrina a SOL Expo Verona, principale fiera europea EVO con buyer internazionali.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <div>
+          <div class="card-title">EVO IOOC Italy</div>
+          <div class="card-sub"><i class="ti ti-map-pin"></i> Palmi, Calabria, Italia</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="pill-row">
+          <span class="pill pill-pri">Internazionale</span>
+          <span class="pill pill-gray">11ª edizione 2026</span>
+        </div>
+        <div class="info-row"><span class="info-key">Apertura iscrizioni 2027</span><span class="info-val">Dicembre 2026</span></div>
+        <div class="info-row"><span class="info-key">Scadenza campioni</span><span class="info-val">Aprile / Maggio 2027</span></div>
+        <div class="info-row"><span class="info-key">Campioni richiesti</span><span class="info-val">4 bottiglie (min. 250 ml)</span></div>
+        <div class="info-row"><span class="info-key">Lotto minimo</span><span class="info-val">500 litri</span></div>
+        <div class="info-row"><span class="info-key">Analisi chimiche</span><span class="info-val">Richieste (FFA, perossidi, UV)</span></div>
+        <div class="info-row"><span class="info-key">IBAN pagamento</span><span class="info-val">IT02Q0538781490000043039713</span></div>
+        <div class="info-row"><span class="info-key">Sito</span><span class="info-val"><a href="https://evo-iooc.com" target="_blank">evo-iooc.com</a></span></div>
+      </div>
+      <div class="card-footer">
+        <div class="why"><strong>Perché partecipare:</strong> Costi contenuti, giuria internazionale di fama mondiale. Include EVO standard, blend, biologico, DOP/IGP e condimenti aromatizzati.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-num">6</div>
+        <div>
+          <div class="card-title">TerraOlivo IOOC</div>
+          <div class="card-sub"><i class="ti ti-map-pin"></i> Gerusalemme, Israele</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="pill-row">
+          <span class="pill pill-pri">Medio Oriente</span>
+          <span class="pill pill-gray">Attivo dal 2010</span>
+        </div>
+        <div class="info-row"><span class="info-key">Apertura iscrizioni</span><span class="info-val">5 dicembre 2026</span></div>
+        <div class="info-row"><span class="info-key">Scadenza campioni</span><span class="info-val">Metà maggio 2027</span></div>
+        <div class="info-row"><span class="info-key">Degustazione</span><span class="info-val">Prima settimana giugno</span></div>
+        <div class="info-row"><span class="info-key">Risultati</span><span class="info-val">Metà luglio 2027</span></div>
+        <div class="info-row"><span class="info-key">Contatti</span><span class="info-val"><a href="mailto:contact@terraolivo-iooc.com">contact@terraolivo-iooc.com</a></span></div>
+        <div class="info-row"><span class="info-key">Sito</span><span class="info-val"><a href="https://terraolivo-iooc.com" target="_blank">terraolivo-iooc.com</a></span></div>
+      </div>
+      <div class="card-footer">
+        <div class="why"><strong>Perché partecipare:</strong> Reputazione internazionale consolidata dal 2010. Ottima vetrina per i mercati del Medio Oriente e dell'Asia centrale.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-num">7</div>
+        <div>
+          <div class="card-title">Flos Olei – Guida Internazionale</div>
+          <div class="card-sub"><i class="ti ti-map-pin"></i> Roma, Italia (guida globale)</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="pill-row">
+          <span class="pill pill-pri">57 paesi, 5 continenti</span>
+          <span class="pill pill-gold">Guida editoriale</span>
+        </div>
+        <div class="info-row"><span class="info-key">Iscrizioni Em. Nord</span><span class="info-val">1 feb – 30 giu 2027</span></div>
+        <div class="info-row"><span class="info-key">Iscrizioni Em. Sud</span><span class="info-val">1 apr – 15 lug 2027</span></div>
+        <div class="info-row"><span class="info-key">Panel di valutazione</span><span class="info-val">~50 assaggiatori</span></div>
+        <div class="info-row"><span class="info-key">Presentazione guida 2027</span><span class="info-val">Roma, dicembre 2026</span></div>
+        <div class="info-row"><span class="info-key">Tiratura</span><span class="info-val">15.000 copie, 3 lingue</span></div>
+        <div class="info-row"><span class="info-key">Sito</span><span class="info-val"><a href="https://flosolei.com" target="_blank">flosolei.com</a></span></div>
+      </div>
+      <div class="card-footer">
+        <div class="why"><strong>Perché partecipare:</strong> Non solo concorso ma la principale guida editoriale globale. Visibilità pluriennale per l'azienda in 57 paesi, non solo per il singolo olio.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title"><i class="ti ti-calendar"></i> Calendario scadenze 2027</div>
+
+  <div class="timeline-wrap">
+    <div class="tl-head">
+      <span class="tl-head-t">Finestre operative per campagna 2026/2027 — Emisfero Nord</span>
+    </div>
+    <div class="months">
+      <div class="month-label">Gen</div><div class="month-label">Feb</div><div class="month-label">Mar</div>
+      <div class="month-label">Apr</div><div class="month-label">Mag</div><div class="month-label">Giu</div>
+      <div class="month-label">Lug</div><div class="month-label">Ago</div><div class="month-label">Set</div>
+      <div class="month-label">Ott</div><div class="month-label">Nov</div><div class="month-label">Dic</div>
+    </div>
+    <div class="tl-rows">
+      <div class="tl-row">
+        <div class="tl-label">NYIOOC</div>
+        <div class="tl-bar-wrap">
+          <div style="grid-column:1/3" class="tl-seg reg"></div>
+          <div style="grid-column:3/4" class="tl-seg dead"></div>
+          <div style="grid-column:4/5" class="tl-seg dead"></div>
+          <div style="grid-column:5/6" class="tl-seg res"></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-label">JOOP</div>
+        <div class="tl-bar-wrap">
+          <div style="grid-column:1/4" class="tl-seg reg"></div>
+          <div style="grid-column:4/5" class="tl-seg dead"></div>
+          <div style="grid-column:5/6" class="tl-seg res"></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-label">Olive Japan</div>
+        <div class="tl-bar-wrap">
+          <div style="grid-column:1/5" class="tl-seg reg"></div>
+          <div style="grid-column:5/6" class="tl-seg dead"></div>
+          <div style="grid-column:6/7" class="tl-seg res"></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-label">Sol d'Oro</div>
+        <div class="tl-bar-wrap">
+          <div style="grid-column:1/2" class="tl-seg reg"></div>
+          <div style="grid-column:2/3" class="tl-seg dead"></div>
+          <div style="grid-column:3/4" class="tl-seg res"></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-label">EVO IOOC</div>
+        <div class="tl-bar-wrap">
+          <div style="grid-column:1/5" class="tl-seg reg"></div>
+          <div style="grid-column:5/6" class="tl-seg dead"></div>
+          <div style="grid-column:6/7" class="tl-seg res"></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-label">TerraOlivo</div>
+        <div class="tl-bar-wrap">
+          <div style="grid-column:1/5" class="tl-seg reg"></div>
+          <div style="grid-column:5/6" class="tl-seg dead"></div>
+          <div style="grid-column:6/8" class="tl-seg res"></div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-label">Flos Olei</div>
+        <div class="tl-bar-wrap">
+          <div style="grid-column:2/7" class="tl-seg reg"></div>
+          <div style="grid-column:7/8" class="tl-seg dead"></div>
+          <div style="grid-column:12/13" class="tl-seg res"></div>
+        </div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#9B3A4E;opacity:0.4;"></div> Finestra iscrizioni</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#C9973A;"></div> Scadenza campioni</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#6B1A2A;"></div> Giuria / Risultati</div>
+    </div>
+  </div>
+
+  <div class="section-title"><i class="ti ti-route"></i> Strategia consigliata</div>
+
+  <div class="strat">
+    <div class="strat-card high">
+      <div class="strat-tag">Priorità 1 — Credenziale globale</div>
+      <div class="strat-name">NYIOOC</div>
+      <div class="strat-desc">Massima visibilità internazionale. Un Gold Award è riconosciuto da buyer in tutto il mondo e aumenta il valore del brand sui mercati anglosassoni.</div>
+    </div>
+    <div class="strat-card med">
+      <div class="strat-tag">Priorità 2 — Mercato giapponese</div>
+      <div class="strat-name">JOOP + Olive Japan</div>
+      <div class="strat-desc">Il Giappone importa il 99% del fabbisogno EVO con crescita +9% annuo. Due concorsi distinti per massimizzare la copertura nel mercato asiatico.</div>
+    </div>
+    <div class="strat-card low">
+      <div class="strat-tag">Priorità 3 — Visibilità EU</div>
+      <div class="strat-name">Sol d'Oro o EVO IOOC</div>
+      <div class="strat-desc">Base di credibilità per buyer internazionali presenti alle fiere italiane. Scegliere in base al volume: 1.500 L (Sol d'Oro) vs 500 L (EVO IOOC).</div>
+    </div>
+    <div class="strat-card low">
+      <div class="strat-tag">Lungo periodo</div>
+      <div class="strat-name">Flos Olei + TerraOlivo</div>
+      <div class="strat-desc">Flos Olei per visibilità editoriale pluriennale in 57 paesi. TerraOlivo per aprire i mercati del Medio Oriente e Asia centrale.</div>
+    </div>
+  </div>
+
+  <div class="section-title"><i class="ti ti-checklist"></i> Checklist pre-iscrizione</div>
+
+  <div class="checklist">
+    <div class="check-item"><div class="check-icon"><i class="ti ti-check"></i></div><span>Lotto omogeneo disponibile di dimensioni sufficienti: min. 500 L per EVO IOOC, min. 1.500 L per Sol d'Oro. NYIOOC e Olive Japan non richiedono lotto minimo.</span></div>
+    <div class="check-item"><div class="check-icon"><i class="ti ti-check"></i></div><span>Certificato di analisi chimiche aggiornato (acidità, perossidi, UV absorbance) — richiesto da Sol d'Oro ed EVO IOOC Italy, da laboratorio accreditato.</span></div>
+    <div class="check-item"><div class="check-icon"><i class="ti ti-check"></i></div><span>Confezione retail con etichetta ufficiale conforme alle norme del paese di origine — il NYIOOC non accetta campioni non etichettati o prototipi.</span></div>
+    <div class="check-item"><div class="check-icon"><i class="ti ti-check"></i></div><span>Budget per spedizione internazionale DHL/UPS. Le spese doganali sono sempre a carico del partecipante. Etichettare: "SAMPLE – NO COMMERCIAL VALUE – NOT FOR SALE".</span></div>
+    <div class="check-item"><div class="check-icon"><i class="ti ti-check"></i></div><span>Capacità di fornire 3–6 bottiglie in formato commerciale per concorso: 1 bottiglia NYIOOC, 5 per JOOP, 3–5 per Olive Japan, 6 per Sol d'Oro, 4 per EVO IOOC.</span></div>
+    <div class="check-item"><div class="check-icon"><i class="ti ti-check"></i></div><span>Metodo di pagamento internazionale disponibile: PayPal, carta di credito o bonifico SWIFT (codice BIC necessario per pagamenti verso Giappone e Israele).</span></div>
+  </div>
+
+  <p class="note">Le date e le quote riportate sono riferite alle edizioni 2026-2027 e potrebbero variare. Verificare sempre le informazioni aggiornate sui siti ufficiali di ciascun concorso prima di procedere all'iscrizione.</p>
+
+  <div class="footer">Documento generato con Claude (Anthropic) — Giugno 2026</div>
+
+</div>
+</body>
+</html>
